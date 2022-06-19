@@ -103,7 +103,7 @@ Main Features:
 
 <br>
 
-> This repo has a wiki! You can check it by clicking ~~[here](https://www.youtube.com/watch?v=UIp6_0kct_U)~~ [here](https://github.com/rxyhn/dotfiles/wiki).
+<!-- > This repo has a wiki! You can check it by clicking ~~[here](https://www.youtube.com/watch?v=UIp6_0kct_U)~~ [here](https://github.com/rxyhn/dotfiles/wiki). -->
 
 <!-- SETUP -->
 ## :wrench: ‎ <samp>Setup</samp>
@@ -147,7 +147,7 @@ Assuming your *AUR Helper* is [paru](https://github.com/Morganamilo/paru).
 > Clone this repository
 
    ```sh
-   git clone --recurse-submodules https://github.com/rxyhn/dotfiles.git
+   git clone --recurse-submodules https://github.com/rishav-singh-0/awesome-wm.git
    cd dotfiles && git submodule update --remote --merge
    ```
 
@@ -276,48 +276,3 @@ EndSection
 | --- |
 | <a href="#--------"><img src="assets/exitscreen.png" width="500px" alt="exitscreen preview"></a> |
 
-<!-- HISTORY -->
-## :japan: ‎ <samp>History</samp>
-
-Ngl this is started when im feel bored lol and decided to start using Linux, more precisely in January 2022. Fyi im a **new Linux user,** when it's in [Linuxer Desktop Art](https://facebook.com/groups/linuxart) i saw a linux setup that caught my eye, then I'm interested in and trying something similar, So yeaaaaaah this is my current setup, my purpose of doing this is to hone my skills to make an attractive UI and also as a hobby. I wanna say thank you to those of you who like and love my setup <3 
-
-<pre align="center">
-<a href="#japan--history">
-<img alt="" align="center" width="96%" src="https://api.star-history.com/svg?repos=rxyhn/dotfiles&type=Date"/>
-</a>
-</pre>
-
-<!-- TIP JAR -->
-## :money_with_wings: ‎ <samp>TIP JAR</samp>
-
-If you enjoyed it and would like to show your appreciation, you may want to tip me here.
-
-It is never required but always appreciated.
-
-Thanks from the bottom of my heart! ‎ :heartpulse:
-
-[![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/rxyhn)
-
-<!-- ACKNOWLEDGEMENTS -->
-## :bulb: ‎ <samp>Acknowledgements</samp>
-
-- **Special thanks to**
-
-   + *Contributors*
-      - [`rxyhn`](https://github.com/rxyhn) *there's nothing wrong with thanking yourself right?*
-      - [`ner0z`](https://github.com/ner0z)
-      - [`paulhersch`](https://github.com/paulhersch)
-      - [`ChocolateBread799`](https://github.com/ChocolateBread799)
-      - [`janleigh`](https://github.com/janleigh)
-      - [`rototrash`](https://github.com/rototrash)
-      - [`Deathemonic`](https://github.com/Deathemonic)
-
-   + *And for them, ofc.*
-      - [`elenapan`](https://github.com/elenapan)
-      - [`manilarome`](https://github.com/manilarome)
-      - [`JavaCafe01`](https://github.com/JavaCafe01)
-      - [`andOrlando`](https://github.com/andOrlando)
-
-<br>
-
-<p align="center"><a href="https://github.com/rxyhn/AwesomeWM-Dotfiles/blob/main/.github/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat-square&label=License&message=GPL-3.0&logoColor=eceff4&logo=github&colorA=162026&colorB=162026"/></a></p>
