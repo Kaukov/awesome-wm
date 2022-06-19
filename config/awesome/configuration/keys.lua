@@ -39,14 +39,27 @@ awful.keyboard.append_global_keybindings({
 	end, { description = "open code editor", group = "app" }),
 
 	-- File manager
-	awful.key({ mod, shift }, "f", function()
-		awful.spawn(apps.default.file_manager)
+	awful.key({ mod }, "e", function()
+		awful.spawn(apps.default.file_manager_gui)
+	end, { description = "open file manager", group = "app" }),
+	awful.key({ mod }, "r", function()
+		awful.spawn.with_shell(apps.default.file_manager_tui)
 	end, { description = "open file manager", group = "app" }),
 
 	-- Web browser
-	awful.key({ mod, shift }, "w", function()
+	awful.key({ mod }, "c", function()
 		awful.spawn(apps.default.web_browser)
 	end, { description = "open web browser", group = "app" }),
+
+	-- Wallpaper picker
+	awful.key({ mod }, "w", function()
+		awful.spawn.with_shell("nitrogen --set-scaled --random")
+	end, { description = "wallpaper shuffel", group = "app" }),
+
+	-- Dmenu
+	awful.key({ mod, ctrl }, "d", function()
+		awful.spawn("dmenu_run")
+	end, { description = "dmenu", group = "app" }),
 
 	---- WM
 	---------
@@ -54,7 +67,7 @@ awful.keyboard.append_global_keybindings({
 	awful.key({ mod, ctrl }, "r", awesome.restart, { description = "reload awesome", group = "WM" }),
 
 	-- Quit awesome
-	awful.key({ mod, ctrl }, "q", awesome.quit, { description = "quit awesome", group = "WM" }),
+	awful.key({ mod, shift }, "q", awesome.quit, { description = "quit awesome", group = "WM" }),
 
 	-- Show help
 	awful.key({ mod }, "F1", hotkeys_popup.show_help, { description = "show Help", group = "WM" }),
@@ -63,50 +76,43 @@ awful.keyboard.append_global_keybindings({
 	---------------
 	-- Focus client by direction
 	awful.key({ mod }, "k", function()
-		awful.client.focus.bydirection("up")
+		awful.client.focus.bydirection("right")
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "focus up", group = "client" }),
 	awful.key({ mod }, "j", function()
-		awful.client.focus.bydirection("down")
-		bling.module.flash_focus.flashfocus(client.focus)
-	end, { description = "focus down", group = "client" }),
-	awful.key({ mod }, "h", function()
 		awful.client.focus.bydirection("left")
 		bling.module.flash_focus.flashfocus(client.focus)
-	end, { description = "focus left", group = "client" }),
-	awful.key({ mod }, "l", function()
-		awful.client.focus.bydirection("right")
-		bling.module.flash_focus.flashfocus(client.focus)
-	end, { description = "focus right", group = "client" }),
+	end, { description = "focus down", group = "client" }),
 
-	awful.key({ mod }, "Up", function()
+	awful.key({ mod, alt }, "Up", function()
 		awful.client.focus.bydirection("up")
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "focus up", group = "client" }),
-	awful.key({ mod }, "Down", function()
+	awful.key({ mod, alt }, "Down", function()
 		awful.client.focus.bydirection("down")
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "focus down", group = "client" }),
-	awful.key({ mod }, "Left", function()
+	awful.key({ mod, alt }, "Left", function()
 		awful.client.focus.bydirection("left")
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "focus left", group = "client" }),
-	awful.key({ mod }, "Right", function()
+	awful.key({ mod, alt }, "Right", function()
 		awful.client.focus.bydirection("right")
 		bling.module.flash_focus.flashfocus(client.focus)
 	end, { description = "focus right", group = "client" }),
 
 	-- Resize focused client
-	awful.key({ mod, ctrl }, "k", function(c)
+	awful.key({ mod, alt }, "k", function(c)
 		helpers.resize_client(client.focus, "up")
 	end, { description = "resize to the up", group = "client" }),
-	awful.key({ mod, ctrl }, "j", function(c)
+	awful.key({ mod, alt }, "j", function(c)
 		helpers.resize_client(client.focus, "down")
 	end, { description = "resize to the down", group = "client" }),
-	awful.key({ mod, ctrl }, "h", function(c)
+
+	awful.key({ mod }, "h", function(c)
 		helpers.resize_client(client.focus, "left")
 	end, { description = "resize to the left", group = "client" }),
-	awful.key({ mod, ctrl }, "l", function(c)
+	awful.key({ mod }, "l", function(c)
 		helpers.resize_client(client.focus, "right")
 	end, { description = "resize to the right", group = "client" }),
 
@@ -122,6 +128,7 @@ awful.keyboard.append_global_keybindings({
 	awful.key({ mod, ctrl }, "Right", function(c)
 		helpers.resize_client(client.focus, "right")
 	end, { description = "resize to the right", group = "client" }),
+
 
 	---- Bling
 	-------------
@@ -197,7 +204,7 @@ awful.keyboard.append_global_keybindings({
 	end, { description = "take a area screenshot", group = "hotkeys" }),
 
 	-- Lockscreen
-	awful.key({ mod, alt }, "l", function()
+	awful.key({ ctrl, alt }, "l", function()
 		lock_screen_show()
 	end, { description = "lock screen", group = "hotkeys" }),
 
@@ -240,19 +247,19 @@ client.connect_signal("request::default_keybindings", function()
 
 		-- Relative move client
 		awful.key({ mod, shift, ctrl }, "j", function(c)
-			c:relative_move(0, dpi(20), 0, 0)
+			c:relative_move(0, dpi(10), 0, 0)
 		end),
 
 		awful.key({ mod, shift, ctrl }, "k", function(c)
-			c:relative_move(0, dpi(-20), 0, 0)
+			c:relative_move(0, dpi(-10), 0, 0)
 		end),
 
 		awful.key({ mod, shift, ctrl }, "h", function(c)
-			c:relative_move(dpi(-20), 0, 0, 0)
+			c:relative_move(dpi(-10), 0, 0, 0)
 		end),
 
 		awful.key({ mod, shift, ctrl }, "l", function(c)
-			c:relative_move(dpi(20), 0, 0, 0)
+			c:relative_move(dpi(10), 0, 0, 0)
 		end),
 
 		-- Toggle floating
@@ -294,22 +301,22 @@ client.connect_signal("request::default_keybindings", function()
 		end, { description = "restore minimized", group = "client" }),
 
 		-- Keep on top
-		awful.key({ mod }, "p", function(c)
+		awful.key({ mod, shift }, "s", function(c)
 			c.ontop = not c.ontop
 		end),
 
 		-- Sticky
-		awful.key({ mod, shift }, "p", function(c)
+		awful.key({ mod }, "s", function(c)
 			c.sticky = not c.sticky
-		end),
+		end,{ description = "sticky", group = "client" }),
 
 		-- Close window
 		awful.key({ mod }, "q", function()
 			client.focus:kill()
-		end),
+		end,{ description = "close", group = "client" }),
 
 		-- Center window
-		awful.key({ mod }, "c", function()
+		awful.key({ mod, shift }, "c", function()
 			awful.placement.centered(c, { honor_workarea = true, honor_padding = true })
 		end),
 
@@ -324,12 +331,12 @@ end)
 ------------
 awful.keyboard.append_global_keybindings({
 	-- Set tilling layout
-	awful.key({ mod }, "s", function()
+	awful.key({ mod }, "t", function()
 		awful.layout.set(awful.layout.suit.tile)
 	end, { description = "set tile layout", group = "layout" }),
 
 	-- Set floating layout
-	awful.key({ mod, shift }, "s", function()
+	awful.key({ mod, shift }, "t", function()
 		awful.layout.set(awful.layout.suit.floating)
 	end, { description = "set floating layout", group = "layout" }),
 
@@ -342,16 +349,10 @@ awful.keyboard.append_global_keybindings({
 	end, { description = "switch between windows for a machi layout", group = "layout" }),
 
 	-- Number of columns
-	awful.key({ mod, alt }, "k", function()
+	awful.key({ mod }, "o", function()
 		awful.tag.incncol(1, nil, true)
 	end, { description = "increase the number of columns", group = "layout" }),
-	awful.key({ mod, alt }, "j", function()
-		awful.tag.incncol(-1, nil, true)
-	end, { description = "decrease the number of columns", group = "layout" }),
-	awful.key({ mod, alt }, "Up", function()
-		awful.tag.incncol(1, nil, true)
-	end, { description = "increase the number of columns", group = "layout" }),
-	awful.key({ mod, alt }, "Down", function()
+	awful.key({ mod, shift }, "o", function()
 		awful.tag.incncol(-1, nil, true)
 	end, { description = "decrease the number of columns", group = "layout" }),
 
@@ -376,8 +377,9 @@ awful.keyboard.append_global_keybindings({
 -- Move through workspaces
 ----------------------------
 awful.keyboard.append_global_keybindings({
-	awful.key({ mod, alt }, "Left", awful.tag.viewprev, { description = "view previous", group = "tags" }),
-	awful.key({ mod, alt }, "Right", awful.tag.viewnext, { description = "view next", group = "tags" }),
+	awful.key({ mod }, "Left", awful.tag.viewprev, { description = "view previous", group = "tags" }),
+	awful.key({ mod }, "Right", awful.tag.viewnext, { description = "view next", group = "tags" }),
+	awful.key({ mod }, "Tab", awful.tag.history.restore, { description = "view last accessed", group = "tags" }),
 	awful.key({
 		modifiers = { mod },
 		keygroup = "numrow",

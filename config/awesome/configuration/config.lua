@@ -2,20 +2,20 @@ return {
 	widget = {
 		weather = {
 			-- API Key
-			key = "",
+			key = "0e6f26f84b3621947c58487c65ea305a",
 			-- City ID
-			city_id = "",
+			city_id = "JAM",
 			-- Coordinates
 			coordinates = {
-				"", -- lat
-				"", -- lon
+				"23.0276", -- lat
+				"72.5871", -- lon
 			},
 		},
 
 		-- Github activity
 		github = {
 			-- Username
-			username = "",
+			username = "rishav-singh-0",
 			-- Number of events
 			number_of_events = 5,
 		},

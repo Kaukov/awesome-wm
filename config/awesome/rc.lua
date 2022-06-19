@@ -45,17 +45,18 @@ require("ui")
 -- ░█▄█░█▀█░█░░░█░░░█▀▀░█▀█░█▀▀░█▀▀░█▀▄
 -- ░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░░░▀░▀░▀░░░▀▀▀░▀░▀
 
-awful.screen.connect_for_each_screen(function(s)
-	if beautiful.wallpaper then
-		local wallpaper = beautiful.wallpaper
-
-		if type(wallpaper) == "function" then
-			wallpaper = wallpaper(s)
-		end
-
-		gears.wallpaper.maximized(gears.surface.load_uncached(wallpaper), s, false, nil)
-	end
-end)
+-- awful.screen.connect_for_each_screen(function(s)
+-- 	if beautiful.wallpaper then
+-- 		local wallpaper = beautiful.wallpaper
+--
+-- 		if type(wallpaper) == "function" then
+-- 			wallpaper = wallpaper(s)
+-- 		end
+--
+-- 		gears.wallpaper.maximized(gears.surface.load_uncached(wallpaper), s, false, nil)
+-- 	end
+-- end)
+awful.spawn.with_shell("nitrogen --set-scaled --random")
 
 -- ░█▀▀░█▀█░█▀▄░█▀▄░█▀█░█▀▀░█▀▀
 -- ░█░█░█▀█░█▀▄░█▀▄░█▀█░█░█░█▀▀
@@ -64,3 +65,7 @@ end)
 -- Enable for lower memory consumption
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
+
+-- Custom programs
+-- awful.spawn.with_shell("bash ~/.config/shell/autostart.sh")
+

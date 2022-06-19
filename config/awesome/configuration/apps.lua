@@ -14,9 +14,10 @@ return {
 		-- Default code editor
 		code_editor = "code",
 		-- Default web browser
-		web_browser = "firefox",
+		web_browser = "brave",
 		-- Default file manager
-		file_manager = "nautilus",
+		file_manager_gui = "pcmanfm",
+		file_manager_tui = "alacritty -e lf",
 		-- Default network manager
 		network_manager = "alacritty -e nmtui",
 		-- Default bluetooth manager

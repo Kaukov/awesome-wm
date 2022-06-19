@@ -103,6 +103,7 @@ theme.music_accent = theme.lighter_bg
 
 -- Wallpaper
 theme.wallpaper = gfs.get_configuration_dir() .. "theme/assets/wallpaper.png"
+-- grep -oP '(?<=file=).*' ~/.config/nitrogen/bg-saved.cfg
 
 -- Pfp
 theme.pfp = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/pfp.png")
@@ -219,6 +220,7 @@ theme.notif_center_notifs_accent = theme.xcolor0
 -- Swallowing
 theme.dont_swallow_classname_list = {
 	"firefox",
+  "brave",
 	"gimp",
 	"Google-chrome",
 	"Thunar",

@@ -49,3 +49,13 @@ run_once_grep("blueman-applet")
 
 -- Network Manager
 run_once_grep("nm-applet")
+
+-- Touch Gestures
+run_once_grep("touchegg")
+
+-- clipboard
+run_once_grep("xfce4-clipman")
+
+-- make cursor invisible
+run_once_grep("unclutter")
+
