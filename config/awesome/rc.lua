@@ -67,5 +67,5 @@ collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
 
 -- Custom programs
--- awful.spawn.with_shell("bash ~/.config/shell/autostart.sh")
+awful.spawn.with_shell("bash ~/.config/shell/autostart.sh")
 

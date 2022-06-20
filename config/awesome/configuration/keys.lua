@@ -6,7 +6,6 @@ local dpi = beautiful.xresources.apply_dpi
 local naughty = require("naughty")
 local bling = require("module.bling")
 local playerctl = bling.signal.playerctl.lib()
-local machi = require("module.layout-machi")
 local helpers = require("helpers")
 local apps = require("configuration.apps")
 
@@ -339,14 +338,6 @@ awful.keyboard.append_global_keybindings({
 	awful.key({ mod, shift }, "t", function()
 		awful.layout.set(awful.layout.suit.floating)
 	end, { description = "set floating layout", group = "layout" }),
-
-	-- Layout machi
-	awful.key({ mod }, ".", function()
-		machi.default_editor.start_interactive()
-	end, { description = "edit the current layout if it is a machi layout", group = "layout" }),
-	awful.key({ mod }, "/", function()
-		machi.switcher.start(client.focus)
-	end, { description = "switch between windows for a machi layout", group = "layout" }),
 
 	-- Number of columns
 	awful.key({ mod }, "o", function()

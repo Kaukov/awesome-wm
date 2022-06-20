@@ -12,10 +12,6 @@ local apps = require("configuration.apps")
 -- Bling Module
 local bling = require("module.bling")
 
--- Layout Machi
-local machi = require("module.layout-machi")
-beautiful.layout_machi = machi.get_icon()
-
 -- Desktop
 -------------
 
@@ -72,24 +68,16 @@ local horizontal = bling.layout.horizontal
 local equal = bling.layout.equalarea
 local deck = bling.layout.deck
 
-machi.editor.nested_layouts = {
-	["0"] = deck,
-	["1"] = awful.layout.suit.spiral,
-	["2"] = awful.layout.suit.fair,
-	["3"] = awful.layout.suit.fair.horizontal,
-}
-
 -- Set the layouts
 tag.connect_signal("request::default_layouts", function()
 	awful.layout.append_default_layouts({
 		awful.layout.suit.tile,
 		awful.layout.suit.floating,
-		centered,
-		mstab,
-		horizontal,
-		machi.default_layout,
-		equal,
 		deck,
+		-- centered,
+		-- mstab,
+		-- horizontal,
+		-- equal,
 	})
 end)
 
@@ -98,7 +86,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	-- Screen padding
 	screen[s].padding = { top = dpi(5), left = dpi(5), right = dpi(5) }
 	-- -- Each screen has its own tag table.
-	awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
+	awful.tag({ "1", "2", "3", "4", "8", "9" }, s, awful.layout.layouts[1])
 end)
 
 -- Helper function to be used by decoration themes to enable client rounding

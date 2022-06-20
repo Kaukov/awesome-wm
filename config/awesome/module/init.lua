@@ -1,6 +1,5 @@
 require("module.bling")
 require("module.rubato")
-require("module.layout-machi")
 require("module.better-resize")
 require("module.exit-screen")
 require("module.savefloats")

@@ -44,6 +44,9 @@ end
 -- Polkit and keyring
 run_once_ps("polkit-gnome-authentication-agent-1", "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
+-- polkit agent
+run_once_ps("lxqt-policykit-agent", "/usr/bin/lxqt-policykit-agent")
+
 -- Bluetooth
 run_once_grep("blueman-applet")
 

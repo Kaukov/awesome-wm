@@ -220,20 +220,13 @@ theme.notif_center_notifs_accent = theme.xcolor0
 -- Swallowing
 theme.dont_swallow_classname_list = {
 	"firefox",
-  "brave",
+	"brave",
 	"gimp",
 	"Google-chrome",
 	"Thunar",
 }
 
--- Layout Machi
-theme.machi_switcher_border_color = theme.darker_bg
-theme.machi_switcher_border_opacity = 0.25
-theme.machi_editor_border_color = theme.darker_bg
-theme.machi_editor_border_opacity = 0.25
-theme.machi_editor_active_opacity = 0.25
-
-theme.fade_duration = 250
+theme.fade_duration = 150
 
 -- window switcher
 theme.window_switcher_widget_bg = theme.lighter_bg -- The bg color of the widget
